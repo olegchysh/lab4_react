@@ -15,31 +15,26 @@ const Reviews = () => {
   }, []); // Порожній масив означає "запустити один раз" [cite: 114]
 
   return (
-    <div style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-      <h2>Відгуки попередніх роботодавців (Варіант 19)</h2>
-      <div className="reviews-list">
-        {/* Використовуємо метод map() для створення списку карток [cite: 137] */}
-        {comments.map(comment => (
-          <div key={comment.id} style={cardStyle}>
-            <h4 style={{ margin: '0 0 10px 0', textTransform: 'capitalize' }}>{comment.name}</h4>
-            <p style={{ fontStyle: 'italic' }}>"{comment.body}"</p>
-            <small style={{ color: '#666' }}>Email: {comment.email}</small>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
+    <section className="max-w-4xl mx-auto my-8">
+      <div className="rounded-3xl border border-slate-200 bg-white/70 p-6 shadow-sm backdrop-blur dark:border-slate-800/70 dark:bg-slate-900/40">
+        <h2 className="text-2xl font-bold text-slate-900 mb-5 dark:text-slate-100">Відгуки попередніх роботодавців (Варіант 19)</h2>
 
-// Стилі для карток відгуків
-const cardStyle = {
-  border: '1px solid #ddd',
-  borderRadius: '8px',
-  padding: '15px',
-  marginBottom: '15px',
-  backgroundColor: '#f9f9f9',
-  color: '#333',
-  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+        <div className="grid gap-4">
+          {/* Використовуємо метод map() для створення списку карток [cite: 137] */}
+          {comments.map(comment => (
+            <article
+              key={comment.id}
+              className="rounded-2xl border border-slate-200 bg-white/80 p-5 dark:border-slate-800 dark:bg-slate-950/40"
+            >
+              <h4 className="font-semibold text-slate-900 capitalize mb-2 dark:text-slate-100">{comment.name}</h4>
+              <p className="text-slate-700 italic leading-relaxed dark:text-slate-300">"{comment.body}"</p>
+              <p className="mt-3 text-xs text-slate-500">Email: {comment.email}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Reviews;

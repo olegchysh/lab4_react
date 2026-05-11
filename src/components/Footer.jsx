@@ -4,62 +4,19 @@ const Footer = () => {
   const [systemData, setSystemData] = useState({ os: '', browser: '' });
 
   useEffect(() => {
-    // 1. Зчитуємо дані про систему та браузер
-    const info = {
-      os: navigator.platform,
-      browser: navigator.userAgent
-    };
-    
-    // 2. Зберігаємо ці дані в localStorage
+    const info = { os: navigator.platform, browser: navigator.userAgent };
     localStorage.setItem('systemInfo', JSON.stringify(info));
-    
-    // 3. Оновлюємо стан, щоб вивести на екран
     setSystemData(info);
   }, []);
 
   return (
-    <footer style={footerStyle}>
-      <p>© 2026 Stepan — Лабораторна робота №4</p>
-      
-      <div style={contactStyle}>
-        <p><strong>Телефон:</strong> <a href="tel:0961959798" style={linkStyle}>096 195 97 98</a></p>
-        <p><strong>Адреса:</strong> м. Львів</p>
-      </div>
-
-      {/* Відображення інформації з localStorage */}
-      <div style={infoStyle}>
-        <p><strong>Ваша ОС:</strong> {systemData.os}</p>
-        <p><strong>Браузер:</strong> {systemData.browser}</p>
+    <footer className="mt-20 border-t border-slate-200 py-10 text-center dark:border-slate-800">
+      <p className="text-slate-600 mb-4 font-medium dark:text-slate-500"> 2026 Stepan — Cybersecurity Student</p>
+      <div className="inline-flex flex-col items-center gap-2 p-4 rounded-2xl border border-slate-200 bg-white/70 text-[10px] text-slate-600 font-mono backdrop-blur dark:border-slate-800 dark:bg-slate-900/50 dark:text-slate-500">
+        <p><strong>OS:</strong> {systemData.os}</p>
+        <p className="max-w-xs truncate"><strong>Agent:</strong> {systemData.browser}</p>
       </div>
     </footer>
   );
 };
-
-const footerStyle = {
-  padding: '20px',
-  borderTop: '1px solid #444',
-  marginTop: '30px',
-  textAlign: 'center',
-  fontSize: '14px'
-};
-
-const contactStyle = {
-  marginTop: '15px',
-  fontSize: '14px',
-  color: '#444',
-  lineHeight: '1.6'
-};
-
-const infoStyle = {
-  marginTop: '10px',
-  fontSize: '12px',
-  color: '#888',
-  lineHeight: '1.5'
-};
-
-const linkStyle = {
-  color: '#1d4ed8',
-  textDecoration: 'none'
-};
-
 export default Footer;
