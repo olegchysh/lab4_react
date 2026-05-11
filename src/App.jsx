@@ -9,7 +9,7 @@ import Reviews from './components/Reviews';
 import Skills from './components/Skills';
 
 function App() {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
 
   useEffect(() => {
     const saved = localStorage.getItem('theme');
@@ -18,8 +18,10 @@ function App() {
       return;
     }
 
-    const prefersDark = window.matchMedia?.('(prefers-color-scheme: dark)')?.matches;
-    setTheme(prefersDark ? 'dark' : 'light');
+    // Автоматичне перемикання теми за часом
+    const hour = new Date().getHours();
+    const isDaytime = hour >= 7 && hour < 21;
+    setTheme(isDaytime ? 'light' : 'dark');
   }, []);
 
   useEffect(() => {
@@ -37,7 +39,7 @@ function App() {
           onClick={() => setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))}
           className="fixed top-5 right-5 z-[1001] rounded-full border border-slate-300 bg-white/80 px-4 py-2 text-sm font-semibold text-slate-900 shadow-lg backdrop-blur hover:bg-white dark:border-slate-700 dark:bg-slate-900/60 dark:text-slate-100 dark:hover:bg-slate-900"
         >
-          Тема: {theme}
+          Змінити тему
         </button>
 
         <Header />

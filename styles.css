@@ -1,0 +1,260 @@
+/* Базові стилі */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Світла тема */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Темна тема */
+body.dark {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+body.dark header {
+    background-color: #2d2d2d;
+    border-bottom: 1px solid #444;
+}
+
+body.dark main {
+    background-color: #2d2d2d;
+}
+
+body.dark footer {
+    background-color: #2d2d2d;
+    border-top: 1px solid #444;
+}
+
+body.dark section {
+    background-color: #333;
+    border: 1px solid #444;
+}
+
+body.dark #modal-overlay div {
+    background-color: #333 !important;
+    color: #e0e0e0 !important;
+}
+
+body.dark input, 
+body.dark textarea {
+    background-color: #444 !important;
+    color: #e0e0e0 !important;
+    border: 1px solid #555 !important;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+header nav a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+#theme-toggle {
+    background-color: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#theme-toggle:hover {
+    background-color: rgba(255,255,255,0.3);
+}
+
+/* Main */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    background: white;
+    margin: 2rem 0;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+section h2 {
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 0.5rem;
+}
+
+section ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+section li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 2rem;
+}
+
+section li:before {
+    content: "▶";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+}
+
+section li:last-child {
+    border-bottom: none;
+}
+
+/* Відгуки */
+#reviews-list {
+    margin-top: 1rem;
+}
+
+.review-item {
+    background: #f8f9fa;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-left: 4px solid #667eea;
+    border-radius: 5px;
+}
+
+.review-item strong {
+    color: #667eea;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.review-item p {
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.review-item small {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+#footer-system-info {
+    background: rgba(255,255,255,0.1);
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem 0;
+    display: inline-block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    header {
+        padding: 1rem;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    section {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    #modal-overlay div {
+        width: 95%;
+        padding: 20px;
+    }
+}
+
+/* Анімації */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Кнопки */
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* Форма */
+form input, 
+form textarea {
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+form input:focus, 
+form textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+}

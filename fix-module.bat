@@ -1,0 +1,6 @@
+@echo off
+echo Fixing dist/index.html for file:// protocol...
+powershell -Command "(Get-Content 'dist\index.html') -replace 'type=\"module\" ', '' | Set-Content 'dist\index.html'"
+echo Removed type="module" from script tag
+echo Opening fixed file...
+explorer "file:///c:/Users/Stepan/lab_2/lab_2_react/dist/index.html"

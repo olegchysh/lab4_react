@@ -1,0 +1,13 @@
+@echo off
+echo Fixing asset paths in dist/index.html for file:// protocol...
+if not exist "dist\index.html" (
+    echo dist/index.html not found. Running build first...
+    npm run build
+)
+
+echo Replacing /assets/ with ./assets/ in dist/index.html...
+powershell -Command "(Get-Content 'dist\index.html') -replace '/assets/', './assets/' | Set-Content 'dist\index.html'"
+
+echo Done! You can now open dist/index.html directly in a browser.
+echo Opening file...
+explorer "file:///c:/Users/Stepan/lab_2/lab_2_react/dist/index.html"
